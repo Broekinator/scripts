@@ -2,8 +2,9 @@
 --| Credits: ixnx
 --| ___________________ |   VARIABLES TO CHANGE   | ___________________ |--
 
-getgenv().CurrentStat = "Psychic" --| Options: "Endurace", "Psychic", "Strength"
-getgenv().Enabled = true            --| Set to false, then re-execute to disable
+-- This is the GitHub-loadstring version of the script. to use the source-code, remove the '--' before the following two lines:
+--getgenv().CurrentStat = "Psychic" --| Options: "Endurace", "Psychic", "Strength"
+--getgenv().Enabled = true            --| Set to false, then re-execute to disable
 
 --| ___________________ | END VARIABLES TO CHANGE | ___________________ |--
 --| 
