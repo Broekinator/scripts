@@ -92,5 +92,9 @@ getgenv().Loop = s.RunService.Stepped:Connect(function()
     end
     
     if activateToolTraining then game.Players.LocalPlayer.Character:FindFirstChild(curStat):Activate() end
+
+    for i,v in pairs(s.Players.LocalPlayer.Character) do
+        if v.ClassName == "Part" then v.CanCollide = false elseif v.ClassName == "Model" then v.CanCollide = false end
+    end
 end)
 --|
