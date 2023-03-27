@@ -3,7 +3,7 @@
 --| ___________________ |   VARIABLES TO CHANGE   | ___________________ |--
 
 -- This is the GitHub-loadstring version of the script. to use the source-code, remove the '--' before the following two lines:
---getgenv().CurrentStat = "Psychic" --| Options: "Endurace", "Psychic", "Strength"
+--getgenv().CurrentStat = "Endurance" --| Options: "Endurance", "Psychic", "Strength"
 --getgenv().Enabled = true            --| Set to false, then re-execute to disable
 
 --| ___________________ | END VARIABLES TO CHANGE | ___________________ |--
@@ -48,7 +48,7 @@ end
 getgenv().Loop = s.RunService.Stepped:Connect(function()
     if getgenv().CurrentStat == "Endurance" and stats.Endurance.Value >= 100 then
         for i,v in pairs(enduranceAreas) do 
-            if stats.Endurance.Value >= i and currentEnduranceArea < i then
+            if stats.Endurance.Value >= i and currentEnduranceArea <= i then
                 currentEnduranceArea = i
                 char.CFrame = CFrame.new(v)
                 task.wait()
@@ -66,7 +66,7 @@ getgenv().Loop = s.RunService.Stepped:Connect(function()
         end
     elseif getgenv().CurrentStat == "Psychic" then
         for i,v in pairs(psychicAreas) do 
-            if stats.Psychic.Value >= i and currentPsychicArea < i then
+            if stats.Psychic.Value >= i and currentPsychicArea <= i then
                 currentPsychicArea = i
                 char.CFrame = CFrame.new(v)
                 task.wait()
@@ -79,7 +79,7 @@ getgenv().Loop = s.RunService.Stepped:Connect(function()
     elseif getgenv().CurrentStat == "Strength" then
         curStat = "Punch"
         for i,v in pairs(strengthAreas) do 
-            if stats.Strength.Value >= i and currentStrengthArea < i then
+            if stats.Strength.Value >= i and currentStrengthArea <= i then
                 currentStrengthArea = i
                 char.CFrame = CFrame.new(v)
                 task.wait()
@@ -93,7 +93,7 @@ getgenv().Loop = s.RunService.Stepped:Connect(function()
     
     if activateToolTraining then game.Players.LocalPlayer.Character:FindFirstChild(curStat):Activate() end
 
-    for i,v in pairs(s.Players.LocalPlayer.Character) do
+    for i,v in pairs(s.Players.LocalPlayer.Character:GetDescendants()) do
         if v.ClassName == "Part" then v.CanCollide = false elseif v.ClassName == "Model" then v.CanCollide = false end
     end
 end)
